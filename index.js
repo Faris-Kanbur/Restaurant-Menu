@@ -131,3 +131,25 @@ const menu = [
     categoryElement.innerHTML = categoryContent;
   
   //   // =============
+
+  const filterButtons = document.querySelectorAll(".filter-btn");
+
+  filterButtons.forEach((button) => {
+    // event
+    button.addEventListener("click", function (e) {
+      // Yemek filtreleme işlemi gerçekleşecek.
+      const selectedCategoryName = e.target.getAttribute("data-id");
+      const filteredMenu = menu.filter(
+        (item) => item.category === selectedCategoryName
+      );
+
+      console.log("selectedCategoryName: " + selectedCategoryName);
+
+      if (selectedCategoryName == "all") {
+        displayMenuItems(menu);
+      } else {
+        displayMenuItems(filteredMenu);
+      }
+    });
+  });
+}
