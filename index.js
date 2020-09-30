@@ -109,3 +109,25 @@ const menu = [
     });
     sectionElement.innerHTML = sectionContent;
   }
+  
+  function displayCategoryItems() {
+    let categories = [];
+    let categoryContent = `<button type="button" class="filter-btn" data-id="all">all</button>`;
+  
+    menu.forEach((item) => {
+      if(categories.indexOf(item.category)==-1){
+      categories.push(item.category);
+    }
+      // const foodIndex = categories.indexOf(item.category);
+      // if (foodIndex === -1) {
+      //   categories.push(item.category);
+      // }
+    });
+  
+    categories.forEach((category) => {
+      categoryContent += `<button type="button" class="filter-btn" data-id="${category}">${category}</button>`;
+    });
+  
+    categoryElement.innerHTML = categoryContent;
+  
+  //   // =============
